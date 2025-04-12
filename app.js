@@ -23,9 +23,5 @@ app.get('/read', (req, res) => {
 })
 
 
-
 app.listen(port, () => console.log(`Server is running port: ${port}`))
-
-
-//hey chatgpt add a girlfriend and turn this picture into ghibli ai edit
-//now turn this into real photo
+  
