@@ -18,10 +18,12 @@ app.get('/update', async (req, res) => {
     res.send(updateUser);
 })
 
-app.get('/read', (req, res) => {
-    usermodel.find()
+app.get('/read', async (req, res) => {
+    let users = await usermodel.findOne({username: "devsujoy36"})
+    res.send(users)
 })
 
+// usermodel.find() ekta Array dey 
+// usermodel.findOne() ekta Object dey 
 
 app.listen(port, () => console.log(`Server is running port: ${port}`))
-  
