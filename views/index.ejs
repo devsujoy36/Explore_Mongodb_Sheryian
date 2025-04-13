@@ -11,15 +11,11 @@
 
 <body class="">
 
-    <nav>
-        <a href=""></a>
-        <a href=""></a>
-        <a href=""></a>
-    </nav>
+    <div class="min-h-screen flex gap-5 p-10 justify-center items-center">
 
-    <div class="min-h-screen flex justify-center items-center">
-        <div class="w-96 mx-auto border-2 p-10 rounded-lg shadow-2xl">
-            <form action="" class=" grid grid-cols-1 gap-5 ">
+
+        <div class="w-80 border-2 p-5 rounded-lg shadow-2xl">
+            <form method="post" action="/create" class=" grid grid-cols-1 gap-5 ">
                 <h1 class="text-center text-2xl font-semibold text-emerald-600">Enter Your Data Here...</h1>
                 <input name="name" class="p-4 border rounded-md" type="text" placeholder="Enter Your Name">
                 <input name="username" class="p-4 border rounded-md" type="text" placeholder="Enter Your Username">
@@ -27,6 +23,39 @@
                 <input
                     class="p-4 bg-emerald-500 text-xl hover:bg-emerald-400 font-semibold active:scale-95 cursor-pointer rounded-md transition-all  "
                     type="submit" value="Create">
+            </form>
+        </div>
+        <div class="w-80 border-2 p-5 rounded-lg shadow-2xl">
+            <form method="post" action="/update" class=" grid grid-cols-1 gap-5 ">
+                <h1 class="text-center text-2xl font-semibold text-emerald-600">Enter Your Data Here...</h1>
+                <input name="name" class="p-4 border rounded-md" type="text" placeholder="Enter Your Name">
+                <input name="username" class="p-4 border rounded-md" type="text" placeholder="Enter Your Username">
+                <input name="email" class="p-4 border rounded-md" type="email" placeholder="Enter Your Email">
+                <input
+                    class="p-4 bg-emerald-500 text-xl hover:bg-emerald-400 font-semibold active:scale-95 cursor-pointer rounded-md transition-all  "
+                    type="submit" value="Update">
+            </form>
+        </div>
+        <div class="w-80 border-2 p-5 rounded-lg shadow-2xl">
+            <form method="post" action="/read" class=" grid grid-cols-1 gap-5 ">
+                <h1 class="text-center text-2xl font-semibold text-emerald-600">Enter Your Data Here...</h1>
+                <input name="name" class="p-4 border rounded-md" type="text" placeholder="Enter Your Name">
+                <input name="username" class="p-4 border rounded-md" type="text" placeholder="Enter Your Username">
+                <input name="email" class="p-4 border rounded-md" type="email" placeholder="Enter Your Email">
+                <input
+                    class="p-4 bg-emerald-500 text-xl hover:bg-emerald-400 font-semibold active:scale-95 cursor-pointer rounded-md transition-all  "
+                    type="submit" value="Read">
+            </form>
+        </div>
+        <div class="w-80 border-2 p-5 rounded-lg shadow-2xl">
+            <form method="post" action="/delete" class=" grid grid-cols-1 gap-5 ">
+                <h1 class="text-center text-2xl font-semibold text-emerald-600">Enter Your Data Here...</h1>
+                <input name="name" class="p-4 border rounded-md" type="text" placeholder="Enter Your Name">
+                <input name="username" class="p-4 border rounded-md" type="text" placeholder="Enter Your Username">
+                <input name="email" class="p-4 border rounded-md" type="email" placeholder="Enter Your Email">
+                <input
+                    class="p-4 bg-emerald-500 text-xl hover:bg-emerald-400 font-semibold active:scale-95 cursor-pointer rounded-md transition-all  "
+                    type="submit" value="Delete">
             </form>
         </div>
     </div>
