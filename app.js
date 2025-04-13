@@ -2,10 +2,17 @@ const express = require('express');
 const usermodel = require('./usermodel');
 const app = express()
 const port = process.env.PORT || 5000;
+const path = require('path');
+
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
+app.use(express.static(path.join(__dirname, 'public')))
+
+app.set('view engine', 'ejs')
 
 
 app.get('/', (req, res) => {
-    res.send("Hello Boys")
+    res.render("index")
 })
 
 app.get('/create', async (req, res) => {
@@ -19,8 +26,13 @@ app.get('/update', async (req, res) => {
 })
 
 app.get('/read', async (req, res) => {
-    let users = await usermodel.findOne({username: "devsujoy36"})
+    let users = await usermodel.find({ username: "devsujoy36" })
     res.send(users)
+})
+
+app.get("/delete", async (req, res) => {
+    let user = await usermodel.findOneAndDelete({username: "devsujoy36"})
+    res.send(user)
 })
 
 // usermodel.find() ekta Array dey 
