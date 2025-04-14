@@ -15,23 +15,23 @@ app.get('/', (req, res) => {
     res.render("index")
 })
 
-app.get('/create', async (req, res) => {
-    let createUser = await usermodel.create({ name: "Sujoy Das", username: "devsujoy36", email: "sujoydaspc2023@gmail.com", })
+app.post('/create', async (req, res) => {
+    let createUser = await usermodel.create({ name: req.body.name, username: req.body.username, email: req.body.email, password: req.body.password })
     res.send(createUser);
 })
 
-app.get('/update', async (req, res) => {
-    let updateUser = await usermodel.findOneAndUpdate({ username: "devsujoy36" }, { name: "Sourav Das" }, { new: true })
+app.post('/update', async (req, res) => {
+    let updateUser = await usermodel.findOneAndUpdate({ username: req.body.username }, { name: req.body.name }, { new: true })
     res.send(updateUser);
 })
 
-app.get('/read', async (req, res) => {
-    let users = await usermodel.find({ username: "devsujoy36" })
+app.post('/read', async (req, res) => {
+    let users = await usermodel.find({ username: req.body.username})
     res.send(users)
 })
 
-app.get("/delete", async (req, res) => {
-    let user = await usermodel.findOneAndDelete({username: "devsujoy36"})
+app.post("/delete", async (req, res) => {
+    let user = await usermodel.findOneAndDelete({username: req.body.username})
     res.send(user)
 })
 
