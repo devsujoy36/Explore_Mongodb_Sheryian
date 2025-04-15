@@ -1,8 +1,8 @@
 const express = require('express');
+const path = require('path');
 const usermodel = require('./usermodel');
 const app = express()
 const port = process.env.PORT || 5000;
-const path = require('path');
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -26,19 +26,19 @@ app.post('/update', async (req, res) => {
 })
 
 app.post('/read', async (req, res) => {
-    let users = await usermodel.find({
-        username: req.body.username
-    })
+    let users = await usermodel.find({ username: req.body.username })
     res.send(users)
 })
 
 app.post("/delete", async (req, res) => {
-    let user = await usermodel.findOneAndDelete({
-        username: req.body.username
-    })
+    let user = await usermodel.findOneAndDelete({ username: req.body.username })
     res.send(user)
 })
 
 app.listen(port, () => {
     console.log(`Server is running port: ${port}`)
 })
+
+
+
+//This is the curd oparation in mongodb
