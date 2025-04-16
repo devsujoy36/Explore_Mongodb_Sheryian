@@ -2,69 +2,83 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Management</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <style>
+        .inputField {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid green;
+            border-radius: 5px;
+        }
+
+        /* class="w-full bg-emerald-500 text-white text-lg font-semibold py-2 rounded-lg hover:bg-emerald-400 active:scale-95 transition-all */
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid green;
+            border-radius: 5px;
+            background-color: rgb(255, 115, 0);
+            
+
+        }
+    </style>
 </head>
 
-<body class="">
+<body class="bg-gray-100 font-sans">
 
-    <div class="min-h-screen flex flex-wrap gap-5 p-10 justify-center items-start">
+    <div class="min-h-screen p-10 flex flex-col items-center justify-start gap-10">
 
+        <h1 class="text-4xl font-bold text-emerald-600 drop-shadow-sm">User Management Dashboard</h1>
 
-        <div class="w-80 border-2 p-5 rounded-lg ">
-            <form method="post" action="/create" class=" grid grid-cols-1 gap-5 ">
-                <h1 class="text-center text-2xl font-semibold text-emerald-600"> Create User Here...</h1>
-                <input name="name" class="p-2 border rounded-md" type="text" placeholder="Enter Your Name">
-                <input name="username" class="p-2 border rounded-md" type="text" placeholder="Enter Your Username">
-                <input name="email" class="p-2 border rounded-md" type="email" placeholder="Enter Your Email">
-                <input name="password" class="p-2 border rounded-md" type="password" placeholder="Enter Your Password">
-                <input
-                    class="p-2 bg-emerald-500 text-xl hover:bg-emerald-400 font-semibold active:scale-95 cursor-pointer rounded-md transition-all  "
-                    type="submit" value="Create">
-            </form>
+        <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+
+            <!-- Create User -->
+            <div class="bg-white shadow-lg rounded-2xl p-6 w-80 border border-emerald-200">
+                <form method="post" action="/create" class="space-y-4">
+                    <h2 class="text-xl font-semibold text-emerald-600 text-center">Create User</h2>
+                    <input name="name" class="inputField" type="text" placeholder="Enter Your Name">
+                    <input name="username" class="inputField" type="text" placeholder="Enter Your Username">
+                    <input name="email" class="inputField" type="email" placeholder="Enter Your Email">
+                    <input name="password" class="inputField" type="password" placeholder="Enter Your Password">
+                    <button type="submit" class="submit-btn">Create</button>
+                </form>
+            </div>
+
+            <!-- Update User -->
+            <div class="bg-white shadow-lg rounded-2xl p-6 w-80 border border-emerald-200">
+                <form method="post" action="/update" class="space-y-4">
+                    <h2 class="text-xl font-semibold text-emerald-600 text-center">Update User</h2>
+                    <input name="username" class="inputField" type="text" placeholder="Username to Update">
+                    <input name="name" class="inputField" type="text" placeholder="Enter New Name">
+                    <input name="password" class="inputField" type="password" placeholder="Enter New Password">
+                    <button type="submit" class="submit-btn">Update</button>
+                </form>
+            </div>
+
+            <!-- Read User -->
+            <div class="bg-white shadow-lg rounded-2xl p-6 w-80 border border-emerald-200">
+                <form method="post" action="/read" class="space-y-4">
+                    <h2 class="text-xl font-semibold text-emerald-600 text-center">Read User</h2>
+                    <input name="username" class="inputField" type="text" placeholder="Enter Username">
+                    <button type="submit" class="submit-btn">Read</button>
+                </form>
+            </div>
+
+            <!-- Delete User -->
+            <div class="bg-white shadow-lg rounded-2xl p-6 w-80 border border-emerald-200">
+                <form method="post" action="/delete" class="space-y-4">
+                    <h2 class="text-xl font-semibold text-emerald-600 text-center">Delete User</h2>
+                    <input name="username" class="inputField" type="text" placeholder="Enter Username">
+                    <button type="submit" class="submit-btn">Delete</button>
+                </form>
+            </div>
+
         </div>
-        <div class="w-80 border-2 p-5 rounded-lg ">
-            <form method="post" action="/update" class=" grid grid-cols-1 gap-5 ">
-                <h1 class="text-center text-2xl font-semibold text-emerald-600"> Update User Here...</h1>
-                <input name="username" class="p-2 border rounded-md" type="text"
-                    placeholder="Enter Username which has been updated">
-                <input name="name" class="p-2 border rounded-md" type="text" placeholder="Enter New Name">
-                <input name="password" class="p-2 border rounded-md" type="password" placeholder="Enter New Password">
-                <input
-                    class="p-2 bg-emerald-500 text-xl hover:bg-emerald-400 font-semibold active:scale-95 cursor-pointer rounded-md transition-all  "
-                    type="submit" value="Update">
-            </form>
-        </div>
-       <div class="flex flex-col flex-wrap gap-5">
-        <div class="w-80 border-2 p-5 rounded-lg ">
-            <form method="post" action="/read" class=" grid grid-cols-1 gap-5 ">
-                <h1 class="text-center text-2xl font-semibold text-emerald-600"> Read User Here...</h1>
-
-                <input name="username" class="p-2 border rounded-md" type="text" placeholder="Enter Your Username">
-
-
-                <input
-                    class="p-2 bg-emerald-500 text-xl hover:bg-emerald-400 font-semibold active:scale-95 cursor-pointer rounded-md transition-all  "
-                    type="submit" value="Read">
-            </form>
-        </div>
-        <div class="w-80 border-2 p-5 rounded-lg ">
-            <form method="post" action="/delete" class=" grid grid-cols-1 gap-5 ">
-                <h1 class="text-center text-2xl font-semibold text-emerald-600">Delete User Here...</h1>
-                <input name="username" class="p-2 border rounded-md" type="text" placeholder="Enter Your Username">
-                <input
-                    class="p-2 bg-emerald-500 text-xl hover:bg-emerald-400 font-semibold active:scale-95 cursor-pointer rounded-md transition-all  "
-                    type="submit" value="Delete">
-            </form>
-        </div>
-       </div>
     </div>
 
-
-    <script src="javascripts/script.js"></script>
 </body>
 
 </html>

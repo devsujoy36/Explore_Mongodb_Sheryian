@@ -12,7 +12,12 @@ const userSchema = mongoose.Schema({
 module.exports = mongoose.model("user", userSchema)
 
 
-
+/**
+ * First you need to import mongoose
+ * then you create a connection 
+ * then create the userSchema
+ * then module.exports = mongoose.model("user", userSchema) 
+*/
 
 
 
