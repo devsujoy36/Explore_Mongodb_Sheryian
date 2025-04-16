@@ -26,13 +26,13 @@ app.post('/update', async (req, res) => {
 })
 
 app.post('/read', async (req, res) => {
-    let users = await usermodel.find({ username: req.body.username })
-    res.send(users)
+    let readUsers = await usermodel.find({ username: req.body.username })
+    res.send(readUsers)
 })
 
 app.post("/delete", async (req, res) => {
-    let user = await usermodel.findOneAndDelete({ username: req.body.username })
-    res.send(user)
+    let deleteUser = await usermodel.findOneAndDelete({ username: req.body.username })
+    res.send(deleteUser)
 })
 
 app.listen(port, () => {
@@ -40,5 +40,7 @@ app.listen(port, () => {
 })
 
 
+//find hamesha ek array dega 
+//findOne hamesha ek object dega
 
 //This is the curd oparation in mongodb
